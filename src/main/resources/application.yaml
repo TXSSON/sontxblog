@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /sontxblog
+
+spring:
+  application:
+    name: sontxblog
+
+  datasource:
+    url: ${DBMS_CONNECTION:jdbc:postgresql://localhost:5432/sontxblog}
+    password: ${DBMS_PASSWORD:12345678}
+    username: ${DBMS_USERNAME:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+logging:
+  level:
+    root: INFO
+    com.sontxblog: DEBUG
+  file:
+    name: logs/sontxblog.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+app:
+  upload:
+    dir: /opt/app/uploads
